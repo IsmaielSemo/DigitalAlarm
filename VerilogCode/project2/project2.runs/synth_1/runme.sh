@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/New folder/project2/project2.runs/synth_1'
+HD_PWD='C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

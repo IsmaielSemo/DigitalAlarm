@@ -17,22 +17,27 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {D:/New folder/project2/project2.cache/wt} [current_project]
-set_property parent.project_path {D:/New folder/project2/project2.xpr} [current_project]
+set_property webtalk.parent_dir {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo {d:/New folder/project2/project2.cache/ip} [current_project]
+set_property ip_output_repo {c:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  {D:/New folder/project2/project2.srcs/sources_1/new/BCD7SEG.v}
-  {D:/New folder/project2/project2.srcs/sources_1/new/Clock_Divider.v}
-  {D:/New folder/project2/project2.srcs/sources_1/new/Counter.v}
-  {D:/New folder/project2/project2.srcs/sources_1/new/Clock.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/BCD7SEG.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/Clock_Divider.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/Counter.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/Debouncer.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/PushDownButton.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/RisingEdge.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/Synchronizer.v}
+  {C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/sources_1/new/Clock.v}
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -42,8 +47,8 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{D:/New folder/project2/project2.srcs/constrs_1/new/Clock_AlarmCons.xdc}}
-set_property used_in_implementation false [get_files {{D:/New folder/project2/project2.srcs/constrs_1/new/Clock_AlarmCons.xdc}}]
+read_xdc {{C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/constrs_1/new/Clock_AlarmCons.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/Dell-/Desktop/Not Angry Birds/DigitalAlarm/VerilogCode/project2/project2.srcs/constrs_1/new/Clock_AlarmCons.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

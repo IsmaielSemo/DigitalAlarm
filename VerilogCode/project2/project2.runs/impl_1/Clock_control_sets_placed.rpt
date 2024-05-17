@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Thu May 16 13:39:15 2024
+| Date         : Fri May 17 14:32:11 2024
 | Host         : DESKTOP-8OALKSO running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Clock_control_sets_placed.rpt
 | Design       : Clock
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    10 |
-| Unused register locations in slices containing registers |     8 |
+| Number of unique control sets                            |    21 |
+| Unused register locations in slices containing registers |    60 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,7 +34,9 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      8 |            6 |
+|      2 |            6 |
+|      8 |            9 |
+|     10 |            2 |
 |     14 |            1 |
 |    16+ |            3 |
 +--------+--------------+
@@ -46,31 +48,42 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             104 |           17 |
-| No           | No                    | Yes                    |              90 |           12 |
-| No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              14 |            3 |
+| No           | No                    | No                     |             134 |           18 |
+| No           | No                    | Yes                    |             152 |           23 |
+| No           | Yes                   | No                     |              28 |            4 |
+| Yes          | No                    | No                     |              22 |            6 |
 | Yes          | No                    | Yes                    |              48 |            8 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | Yes                   | No                     |              20 |            8 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+--------------------+------------------------+------------------+------------------+----------------+
-|    Clock Signal    |      Enable Signal     | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+--------------------+------------------------+------------------+------------------+----------------+
-|  clk_out_BUFG      | hr1/E[0]               | reset_IBUF       |                1 |              8 |
-|  clk_out_BUFG      | enableH1               | reset_IBUF       |                2 |              8 |
-|  clk_out_BUFG      | enableM1               | reset_IBUF       |                2 |              8 |
-|  clk_out_BUFG      | enableM2               | reset_IBUF       |                1 |              8 |
-|  clk_out_BUFG      | enableS2               | reset_IBUF       |                1 |              8 |
-|  clk_out_BUFG      | enable_IBUF            | reset_IBUF       |                1 |              8 |
-|  clk_segments_BUFG | segments[6]_i_1__3_n_0 |                  |                3 |             14 |
-|  clk_segments_BUFG |                        |                  |               11 |             48 |
-|  clk_out_BUFG      |                        |                  |                6 |             56 |
-|  clk_IBUF_BUFG     |                        | reset_IBUF       |               12 |             90 |
-+--------------------+------------------------+------------------+------------------+----------------+
++--------------------------+-------------------------+-----------------------------+------------------+----------------+
+|       Clock Signal       |      Enable Signal      |       Set/Reset Signal      | Slice Load Count | Bel Load Count |
++--------------------------+-------------------------+-----------------------------+------------------+----------------+
+|  clk_segments_BUFG       | LD14_i_2_n_0            | LD14_i_1_n_0                |                1 |              2 |
+|  clk_segments_BUFG       | LD0_i_2_n_0             | LD0_i_1_n_0                 |                1 |              2 |
+|  clk_segments_BUFG       | LD12_i_2_n_0            | LD12_i_1_n_0                |                1 |              2 |
+|  clk_segments_BUFG       | LD13_i_2_n_0            | LD13_i_1_n_0                |                1 |              2 |
+|  clk_segments_BUFG       | LD15_i_2_n_0            | LD15_i_1_n_0                |                1 |              2 |
+|  clk_segments_BUFG       | dp_i_2_n_0              | dp_i_1_n_0                  |                1 |              2 |
+|  clk_segments_BUFG       |                         | Min1/segments_reg[5]        |                1 |              8 |
+|  clk_segments_BUFG       | UpButton1/Edge/E[0]     |                             |                2 |              8 |
+|  clk_segments_BUFG       | UpButton1/Edge/E[0]     | UpButton1/Edge/SR[0]        |                2 |              8 |
+|  Frequency_Regulator/CLK | enableM2                | reset_IBUF                  |                1 |              8 |
+|  Frequency_Regulator/CLK | enableM1                | reset_IBUF                  |                1 |              8 |
+|  Frequency_Regulator/CLK | enable_IBUF             | reset_IBUF                  |                1 |              8 |
+|  Frequency_Regulator/CLK | enableS2                | reset_IBUF                  |                1 |              8 |
+|  Frequency_Regulator/CLK | hr1/count[3]_i_1__4_n_0 | reset_IBUF                  |                3 |              8 |
+|  Frequency_Regulator/CLK | hr1/E[0]                | reset_IBUF                  |                1 |              8 |
+|  clk_segments_BUFG       |                         | Seg5/segments[5]_i_1__4_n_0 |                1 |             10 |
+|  clk_segments_BUFG       |                         | Seg6/segments[5]_i_1__5_n_0 |                2 |             10 |
+|  clk_segments_BUFG       | segments[6]_i_1_n_0     |                             |                4 |             14 |
+|  clk_segments_BUFG       |                         | reset_IBUF                  |                8 |             60 |
+|  clk_IBUF_BUFG           |                         | reset_IBUF                  |               15 |             92 |
+|  clk_segments_BUFG       |                         |                             |               18 |            134 |
++--------------------------+-------------------------+-----------------------------+------------------+----------------+
 
 

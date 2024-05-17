@@ -29,12 +29,15 @@ end
 else if(load == 1) begin
 count <= data;
 end
-else if(enable == 1)
+else if(enable == 1) begin
 if(count == n-1) begin
 count <= 0;
 end
 else begin
-count <= count + 1;
+count <= count +1;
 end
 end
+end
+
+
 endmodule
