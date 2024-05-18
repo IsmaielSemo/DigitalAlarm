@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sat May 18 17:09:40 2024
+| Date             : Sat May 18 22:42:01 2024
 | Host             : DESKTOP-8OALKSO running 64-bit major release  (build 9200)
 | Command          : report_power -file Clock_power_routed.rpt -pb Clock_power_summary_routed.pb -rpx Clock_power_routed.rpx
 | Design           : Clock
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.083        |
+| Total On-Chip Power (W)  | 0.079        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.011        |
+| Dynamic (W)              | 0.008        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      759 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      307 |     20800 |            1.48 |
-|   CARRY4       |    <0.001 |       16 |      8150 |            0.20 |
-|   Register     |    <0.001 |      287 |     41600 |            0.69 |
-|   Others       |     0.000 |       57 |       --- |             --- |
-|   BUFG         |     0.000 |        1 |        32 |            3.13 |
-| Signals        |    <0.001 |      529 |       --- |             --- |
-| I/O            |     0.009 |       26 |       106 |           24.53 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      852 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      374 |     20800 |            1.80 |
+|   CARRY4       |    <0.001 |       20 |      8150 |            0.25 |
+|   Register     |    <0.001 |      315 |     41600 |            0.76 |
+|   Others       |     0.000 |       59 |       --- |             --- |
+|   BUFG         |     0.000 |        2 |        32 |            6.25 |
+| Signals        |    <0.001 |      601 |       --- |             --- |
+| I/O            |     0.005 |       26 |       106 |           24.53 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.083 |          |           |                 |
+| Total          |     0.079 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.012 |       0.002 |      0.010 |
+| Vccint    |       1.000 |     0.012 |       0.003 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |
+| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +141,7 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| Clock                 |     0.011 |
+| Clock                 |     0.008 |
 |   Button_frequency    |    <0.001 |
 |   DownButton1         |     0.000 |
 |     Deb               |     0.000 |
@@ -152,28 +152,30 @@ Table of Contents
 |     Deb               |     0.000 |
 |     Edge              |     0.000 |
 |     Sync              |     0.000 |
+|   Milli               |    <0.001 |
 |   Min1                |    <0.001 |
 |   Min2                |    <0.001 |
 |   ModeButton1         |    <0.001 |
 |     Deb               |     0.000 |
 |     Edge              |    <0.001 |
 |     Sync              |     0.000 |
-|   RightButton1        |    <0.001 |
+|   One_Hertz           |    <0.001 |
+|   RightButton1        |     0.000 |
 |     Deb               |     0.000 |
-|     Edge              |    <0.001 |
+|     Edge              |     0.000 |
 |     Sync              |     0.000 |
 |   Sec1                |    <0.001 |
 |   Sec2                |    <0.001 |
 |   Seg1                |    <0.001 |
 |   Seg10               |    <0.001 |
 |   Seg11               |    <0.001 |
-|   Seg12               |     0.000 |
-|   Seg2                |     0.000 |
-|   Seg3                |     0.000 |
+|   Seg12               |    <0.001 |
+|   Seg2                |    <0.001 |
+|   Seg3                |    <0.001 |
 |   Seg4                |    <0.001 |
-|   Seg5                |     0.000 |
-|   Seg6                |     0.000 |
-|   Seg7                |     0.000 |
+|   Seg5                |    <0.001 |
+|   Seg6                |    <0.001 |
+|   Seg7                |    <0.001 |
 |   Seg8                |    <0.001 |
 |   Seg9                |    <0.001 |
 |   Segment_frequency   |    <0.001 |

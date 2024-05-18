@@ -22,7 +22,7 @@
 
 module BCD7SEG# (parameter x =0)(input [3:0] number, clk,output reg [6:0] segments);
 
-always @(posedge clk) begin
+always @(posedge clk) begin 
 case(number)
 0: segments = 7'b0000001;
 1: segments = 7'b1001111;

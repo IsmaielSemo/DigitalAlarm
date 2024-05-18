@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sat May 18 17:09:23 2024
+| Date         : Sat May 18 22:41:40 2024
 | Host         : DESKTOP-8OALKSO running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Clock_control_sets_placed.rpt
 | Design       : Clock
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    30 |
-| Unused register locations in slices containing registers |    82 |
+| Number of unique control sets                            |    32 |
+| Unused register locations in slices containing registers |    90 |
 +----------------------------------------------------------+-------+
 
 
@@ -37,8 +37,9 @@ Table of Contents
 |      2 |            7 |
 |      8 |           13 |
 |     10 |            4 |
+|     12 |            1 |
 |     14 |            1 |
-|    16+ |            5 |
+|    16+ |            6 |
 +--------+--------------+
 
 
@@ -48,51 +49,53 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             214 |           33 |
-| No           | No                    | Yes                    |             188 |           24 |
-| No           | Yes                   | No                     |              48 |           10 |
+| No           | No                    | No                     |             216 |           40 |
+| No           | No                    | Yes                    |             222 |           37 |
+| No           | Yes                   | No                     |              48 |            9 |
 | Yes          | No                    | No                     |              24 |            7 |
-| Yes          | No                    | Yes                    |              48 |            9 |
-| Yes          | Yes                   | No                     |              52 |           14 |
+| Yes          | No                    | Yes                    |              68 |           13 |
+| Yes          | Yes                   | No                     |              52 |           16 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------------------+---------------------------------------------+----------------------------------------+------------------+----------------+
-|          Clock Signal         |                Enable Signal                |            Set/Reset Signal            | Slice Load Count | Bel Load Count |
-+-------------------------------+---------------------------------------------+----------------------------------------+------------------+----------------+
-|  clk_segments_BUFG            | LD12_i_2_n_0                                | LD12_i_1_n_0                           |                1 |              2 |
-|  clk_segments_BUFG            | LD0_i_2_n_0                                 | LD0_i_1_n_0                            |                1 |              2 |
-|  clk_segments_BUFG            | LD14_i_2_n_0                                | LD14_i_1_n_0                           |                1 |              2 |
-|  clk_segments_BUFG            | LD15_i_2_n_0                                | LD15_i_1_n_0                           |                1 |              2 |
-|  clk_segments_BUFG            | LD13_i_2_n_0                                | LD13_i_1_n_0                           |                1 |              2 |
-|  clk_segments_BUFG            | VDC_i_1_n_0                                 |                                        |                1 |              2 |
-|  clk_segments_BUFG            | dp0_in                                      | dp_i_1_n_0                             |                1 |              2 |
-|  clk_segments_BUFG            |                                             | Min1/segments_reg[2]_0                 |                2 |              8 |
-|  clk_segments_BUFG            | UpButton1/Edge/E[0]                         | Min2/SR[0]                             |                2 |              8 |
-|  clk_segments_BUFG            | UpButton1/Edge/counthours2Adjust_reg[0][0]  |                                        |                2 |              8 |
-|  clk_segments_BUFG            | UpButton1/Edge/counthours2Adjust_reg[0][0]  | hr2/SR[0]                              |                2 |              8 |
-|  clk_segments_BUFG            | UpButton1/Edge/counthours2Alarm_reg[0]_0[0] | UpButton1/Edge/counthours2Alarm_reg[0] |                2 |              8 |
-|  clk_segments_BUFG            | UpButton1/Edge/countminutes1Alarm_reg[0][0] | UpButton1/Edge/SR[0]                   |                1 |              8 |
-|  clk_segments_BUFG            | DownButton1/Edge/E[0]                       | UpButton1/Edge/SR[0]                   |                1 |              8 |
-|  Frequency_Regulator/clk_out  | enable_IBUF                                 | reset_IBUF                             |                1 |              8 |
-|  Frequency_Regulator/clk_out  | enableS2                                    | reset_IBUF                             |                1 |              8 |
-|  Frequency_Regulator/clk_out  | Min1/count[3]_i_1__0_n_0                    | reset_IBUF                             |                2 |              8 |
-|  Frequency_Regulator/clk_out  | hr1/count[3]_i_1__4_n_0                     | reset_IBUF                             |                2 |              8 |
-|  Frequency_Regulator/clk_out  | hr1/E[0]                                    | reset_IBUF                             |                2 |              8 |
-|  Frequency_Regulator/clk_out  | Min2/count[3]_i_1_n_0                       | reset_IBUF                             |                1 |              8 |
-|  clk_segments_BUFG            |                                             | Seg5/segments[5]_i_1__8_n_0            |                3 |             10 |
-|  clk_segments_BUFG            |                                             | Seg6/segments[5]_i_1__9_n_0            |                2 |             10 |
-|  clk_segments_BUFG            |                                             | Seg7/segments[5]_i_1__10_n_0           |                1 |             10 |
-|  clk_segments_BUFG            |                                             | Seg8/segments[5]_i_1__11_n_0           |                2 |             10 |
-|  clk_segments_BUFG            | segments[6]_i_1__0_n_0                      |                                        |                4 |             14 |
-|  Button_frequency/clk_buttons |                                             |                                        |                2 |             20 |
-|  Button_frequency/clk_buttons |                                             | reset_IBUF                             |                2 |             24 |
-|  clk_segments_BUFG            |                                             | reset_IBUF                             |                8 |             36 |
-|  clk_IBUF_BUFG                |                                             | reset_IBUF                             |               14 |            128 |
-|  clk_segments_BUFG            |                                             |                                        |               31 |            194 |
-+-------------------------------+---------------------------------------------+----------------------------------------+------------------+----------------+
++-------------------------------+-----------------------------------------------+----------------------------------------+------------------+----------------+
+|          Clock Signal         |                 Enable Signal                 |            Set/Reset Signal            | Slice Load Count | Bel Load Count |
++-------------------------------+-----------------------------------------------+----------------------------------------+------------------+----------------+
+|  clk_segments_BUFG            | LD0_i_2_n_0                                   | LD0_i_1_n_0                            |                1 |              2 |
+|  clk_segments_BUFG            | LD13_i_2_n_0                                  | LD13_i_1_n_0                           |                1 |              2 |
+|  clk_segments_BUFG            | LD14_i_2_n_0                                  | LD14_i_1_n_0                           |                1 |              2 |
+|  clk_segments_BUFG            | LD12_i_2_n_0                                  | LD12_i_1_n_0                           |                1 |              2 |
+|  clk_segments_BUFG            | LD15_i_2_n_0                                  | LD15_i_1_n_0                           |                1 |              2 |
+|  clk_segments_BUFG            | VDC_i_1_n_0                                   |                                        |                1 |              2 |
+|  clk_segments_BUFG            | dp_i_2_n_0                                    | dp_i_1_n_0                             |                1 |              2 |
+|  clk_segments_BUFG            |                                               | Min1/segments_reg[2]_0                 |                1 |              8 |
+|  clk_segments_BUFG            | UpButton1/Edge/counthours2Alarm_reg[0]_0[0]   | UpButton1/Edge/counthours2Alarm_reg[0] |                2 |              8 |
+|  clk_segments_BUFG            | UpButton1/Edge/E[0]                           |                                        |                2 |              8 |
+|  clk_segments_BUFG            | UpButton1/Edge/E[0]                           | hr2/SR[0]                              |                2 |              8 |
+|  clk_segments_BUFG            | DownButton1/Edge/countminutes1Alarm_reg[0][0] | UpButton1/Edge/SR[0]                   |                2 |              8 |
+|  clk_segments_BUFG            | DownButton1/Edge/countminutes2Adjust_reg[3]   | Min2/SR[0]                             |                2 |              8 |
+|  clk_segments_BUFG            | DownButton1/Edge/E[0]                         | UpButton1/Edge/SR[0]                   |                2 |              8 |
+|  clk_out_BUFG                 | enableS2                                      | reset_IBUF                             |                1 |              8 |
+|  clk_out_BUFG                 | enableS1                                      | reset_IBUF                             |                1 |              8 |
+|  clk_out_BUFG                 | Min1/count[3]_i_1__0_n_0                      | reset_IBUF                             |                3 |              8 |
+|  clk_out_BUFG                 | hr1/count[3]_i_1__5_n_0                       | reset_IBUF                             |                2 |              8 |
+|  clk_out_BUFG                 | hr1/E[0]                                      | reset_IBUF                             |                1 |              8 |
+|  clk_out_BUFG                 | Min2/count[3]_i_1_n_0                         | reset_IBUF                             |                2 |              8 |
+|  clk_segments_BUFG            |                                               | Seg5/segments[5]_i_1__8_n_0            |                2 |             10 |
+|  clk_segments_BUFG            |                                               | Seg6/segments[5]_i_1__9_n_0            |                2 |             10 |
+|  clk_segments_BUFG            |                                               | Seg7/segments[5]_i_1__10_n_0           |                2 |             10 |
+|  clk_segments_BUFG            |                                               | Seg8/segments[5]_i_1__11_n_0           |                2 |             10 |
+|  clk_out_BUFG                 |                                               |                                        |                4 |             12 |
+|  clk_segments_BUFG            | segments[6]_i_1__0_n_0                        |                                        |                4 |             14 |
+|  clk_out_BUFG                 | enable_IBUF                                   | reset_IBUF                             |                3 |             20 |
+|  Button_frequency/clk_buttons |                                               |                                        |                3 |             20 |
+|  Button_frequency/clk_buttons |                                               | reset_IBUF                             |                4 |             24 |
+|  clk_segments_BUFG            |                                               | reset_IBUF                             |                5 |             36 |
+|  clk_IBUF_BUFG                |                                               | reset_IBUF                             |               28 |            162 |
+|  clk_segments_BUFG            |                                               |                                        |               33 |            184 |
++-------------------------------+-----------------------------------------------+----------------------------------------+------------------+----------------+
 
 
